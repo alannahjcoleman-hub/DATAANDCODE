@@ -1,4 +1,4 @@
-# DATAANDCODE
+# CINEMATCH
 
 Table of contents:
 - Cinematch FINAL A2 is the coding behind my prototype
