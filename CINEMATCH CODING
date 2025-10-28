@@ -34,7 +34,7 @@ movies = {
 # Dictionary to store user ratings which stores each rated movie as a key 
 ratings = {}
 
-# Setup Tkinter Window 
+# Setup Tkinter Window (GeeksforGeeks, 2023)
 # This section intialises the GUI window and defines its appearance (title, size and background colour)
 
 root = tk.Tk()
@@ -48,7 +48,7 @@ root.config(bg="#660000")  # dark red background
 tk.Label(root, text= "🍿 CineMatch 🍿", font=("Helvetica", 26, "bold"),fg="#FFD700", bg="#2b0000").pack(pady=15)
 
 
-# Dropdown menus for service and genre 
+# Dropdown menus for service and genre (Codemy, 2019), (Codemy, 2019), (GeeksforGeeks, 2020)
 # These menus allow the user to choose from avaliable services and genres 
 # The selections are linked to Stringvar variables 
 
@@ -65,7 +65,7 @@ genre_dropdown ['values'] = ["Action", "Comedy", "Animation","Romcom","Drama"]
 genre_dropdown.pack(pady=5)
 
 
-# Label to display the recommended movie
+# Label to display the recommended movie (Tkinter․com, 2024)
 # This label dynamically updates each time the user generates a movie suggestion
 
 result_label = tk.Label(root, text ="", font =("Arial", 12))
@@ -73,7 +73,7 @@ result_label.pack(pady=20)
 
 
 # Rating System interface 
-# This section creates the interactive 5 star rating system 
+# This section creates the interactive 5 star rating system (pyth, 2022)
 # It consists of clickable stars that change when hovered or selected 
 
 rating_label = tk.Label(root, text="", font=("Arial", 11))
@@ -85,7 +85,7 @@ rating_frame.pack(pady=5)
 rating_var = tk.IntVar(value=0)   # locked-in rating
 hover_var = tk.IntVar(value=0)    # temporary hover value
 
-# Watched / Rated Movies Selection
+# Watched / Rated Movies Selection (Codemy.com, 2020), (Ryan Noonan, 2020), (Tkinter․com, 2022), (Tkinter․com, 2024)
 # Displays all movies that have been rated, along with their star ratings
 tk.Label(root, text="🎬 Rated Movies:", font =("Helvetica", 12, "bold")).pack(pady=5)
 rated_listbox = tk.Listbox(root, width=45, height =6)
@@ -99,7 +99,7 @@ def update_rated_list():
         rated_listbox.insert(tk.END, f"{movie} - {stars} ({rating}/5)")
 
 
-# Create container for star widgets
+# Create container for star widgets (pyth, 2022), (Ryan Noonan, 2020), (Tkinter․com, 2022), (Tkinter․com, 2024)
 # These functions handle hovering, clicking and displaying the appropriate number of stars to reflect the users selection 
 
 stars_buttons = []
@@ -130,7 +130,7 @@ def set_rating(r):
         ratings[current_movie] = r
         update_rated_list()
 
-# Create 5 interactive star labels with good hit area and cursor
+# Create 5 interactive star labels with good hit area and cursor (Ryan Noonan, 2020)
 # Each label acts as a button. The lambda captures the loop index so each star reacts independently to hover and click events 
 for i in range(1, 6):
     lbl = tk.Label(rating_frame, text="☆", font=("Arial", 28),
@@ -142,7 +142,7 @@ for i in range(1, 6):
     lbl.bind("<Button-1>", lambda e, r=i: set_rating(r))
     stars_buttons.append(lbl)
 
-#Function to recommend movie 
+#Function to recommend movie (JimShapedCoding, 2020), (GeeksforGeeks, 2021), (S.M.D.S, 2023)
 # This is the core logic of the program. It checks that the user has selected both a streaming service and genre, then chooses a random movie from that category
 def recommend_movie():
     global current_movie 
@@ -178,9 +178,9 @@ def recommend_movie():
         update_stars_display(0)
         rating_label.config(text="")
 
-# Button to generate recommendation 
+# Button to generate recommendation (S.M.D.S, 2023)
 # When pressed, the program executes the recommend_movie() function
 tk.Button(root, text="Generate Movie", command=recommend_movie).pack(pady=10)
 
-# Run the Tkinter event loop and keep the application running for user interactions
+# Run the Tkinter event loop and keep the application running for user interactions (GeeksforGeeks, 2024)
 root.mainloop()
